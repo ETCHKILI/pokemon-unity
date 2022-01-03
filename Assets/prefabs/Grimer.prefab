@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7778898842245516540}
   - component: {fileID: 7470065565355721825}
+  - component: {fileID: 4147372280855603579}
+  - component: {fileID: 7896566116516359486}
+  - component: {fileID: -8832666023047106893}
+  - component: {fileID: 5781484139535849965}
   m_Layer: 0
   m_Name: Grimer
   m_TagString: Untagged
@@ -45,12 +49,118 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pokeName: Grimer
-  type: 2
-  attack: 2
-  defence: 15
-  currentHP: 30
-  maxHP: 30
-  speed: 4
+  nickName: 
+  type: 5
+  attack: 80
+  defence: 50
+  currentHP: 80
+  maxHP: 80
+  speed: 25
+  specialAttack: 40
+  specialDefence: 50
+  level: 1
+  totalExp: 1
+  firstEvoLev: 38
+  secondEvoLev: 101
+  skillPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  masterSkill:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  character: 1
+--- !u!114 &4147372280855603579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199291761151063500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e916512ab61868741a21e0f83d3a6a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u77AA\u773C"
+  description: "\u7528\u7280\u5229\u7684\u773C\u795E\u4F7F\u5176\u5BB3\u6015\uFF0C\u4ECE\u800C\u964D\u4F4E\u5BF9\u624B\u7684\u9632\u5FA1\u3002"
+  damage: 0
+  maxPP: 30
+  currentPP: 30
+  hitRate: 100
+  effect: 3
+  unlockLevel: 0
+--- !u!114 &7896566116516359486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199291761151063500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e916512ab61868741a21e0f83d3a6a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u767E\u4E07\u5428\u91CD\u62F3"
+  description: "\u7528\u5145\u6EE1\u529B\u91CF\u7684\u62F3\u5934\u653B\u51FB\u5BF9\u624B\u3002"
+  damage: 80
+  maxPP: 20
+  currentPP: 20
+  hitRate: 80
+  effect: 0
+  unlockLevel: 0
+--- !u!114 &-8832666023047106893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199291761151063500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e916512ab61868741a21e0f83d3a6a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u53EB\u58F0"
+  description: "\u8BA9\u5BF9\u624B\u542C\u53EF\u7231\u7684\u53EB\u58F0\uFF0C\u5F15\u5F00\u6CE8\u610F\u529B\u4F7F\u5176\u758F\u5FFD\uFF0C\u4ECE\u800C\u964D\u4F4E\u5BF9\u624B\u7684\u653B\u51FB\u3002"
+  damage: 0
+  maxPP: 30
+  currentPP: 30
+  hitRate: 100
+  effect: 3
+  unlockLevel: 0
+--- !u!114 &5781484139535849965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199291761151063500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e916512ab61868741a21e0f83d3a6a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u820D\u8EAB\u51B2\u649E"
+  description: "\u62FC\u547D\u5730\u731B\u649E\u5411\u5BF9\u624B\u8FDB\u884C\u653B\u51FB\u3002"
+  damage: 100
+  maxPP: 10
+  currentPP: 10
+  hitRate: 60
+  effect: 0
+  unlockLevel: 0
 --- !u!1 &9026286393410467550
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,8 +186,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9026286393410467550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.138, y: 1.092, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.7212, y: 1.6752, z: 0}
+  m_LocalScale: {x: 1.2915051, y: 1.2915051, z: 1.2915051}
   m_Children: []
   m_Father: {fileID: 7778898842245516540}
   m_RootOrder: 0

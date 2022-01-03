@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6077444177403908821
+--- !u!1 &1833558511927310803
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,87 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5030007282774697395}
-  - component: {fileID: 3369607713924181449}
+  - component: {fileID: 3543482107881623722}
+  - component: {fileID: 9050328658896886583}
   m_Layer: 0
-  m_Name: FireDragon
+  m_Name: "\u5C0F\u706B\u9F99"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5030007282774697395
+--- !u!4 &3543482107881623722
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077444177403908821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1197305189379179876}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3369607713924181449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6077444177403908821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c13964a03d08b4f988a7bab6e73cc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pokeName: FireDragon
-  type: 1
-  attack: 10
-  defence: 2
-  currentHP: 30
-  maxHP: 30
-  speed: 10
---- !u!1 &6092170497330571060
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1197305189379179876}
-  - component: {fileID: 7874852736453569293}
-  m_Layer: 0
-  m_Name: 6
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1197305189379179876
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6092170497330571060}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.094, y: 1.794, z: 0}
-  m_LocalScale: {x: 1.7908, y: 1.7367, z: 1}
+  m_GameObject: {fileID: 1833558511927310803}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.24, y: 2.5, z: 0}
+  m_LocalScale: {x: 0.8206943, y: 0.8206943, z: 0.8206943}
   m_Children: []
   m_Father: {fileID: 5030007282774697395}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7874852736453569293
+--- !u!212 &9050328658896886583
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6092170497330571060}
+  m_GameObject: {fileID: 1833558511927310803}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -122,14 +71,175 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e7023cd378451d4d80b1c653bb62ff7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6876474b168f10d48952ac4aa5287fc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 6.3, y: 6.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6077444177403908821
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5030007282774697395}
+  - component: {fileID: 3369607713924181449}
+  - component: {fileID: 9181614852325231744}
+  - component: {fileID: 3555707496310018626}
+  - component: {fileID: -1160228466996107302}
+  - component: {fileID: -4698408500404618768}
+  m_Layer: 0
+  m_Name: FireDragon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5030007282774697395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077444177403908821}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3543482107881623722}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3369607713924181449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077444177403908821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c13964a03d08b4f988a7bab6e73cc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pokeName: FireDragon
+  nickName: 
+  type: 1
+  attack: 50
+  defence: 43
+  currentHP: 30
+  maxHP: 30
+  speed: 65
+  specialAttack: 60
+  specialDefence: 50
+  level: 1
+  totalExp: 1
+  firstEvoLev: 16
+  secondEvoLev: 36
+  skillPool:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  masterSkill:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  character: 2
+--- !u!114 &9181614852325231744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077444177403908821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e916512ab61868741a21e0f83d3a6a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u8DC3\u8D77"
+  description: "\u4E5F\u4E0D\u653B\u51FB\u53EA\u662F\u4E00\u8E66\u4E00\u8E66\u5730\u8DF3\uFF0C\u4EC0\u4E48\u90FD\u4E0D\u4F1A\u53D1\u751F\u2026\u2026"
+  damage: 0
+  maxPP: 20
+  currentPP: 20
+  hitRate: 0
+  effect: 0
+  unlockLevel: 0
+--- !u!114 &3555707496310018626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077444177403908821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e916512ab61868741a21e0f83d3a6a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u6293"
+  description: "\u7528\u575A\u786C\u4E14\u65E0\u6BD4\u950B\u5229\u7684\u722A\u5B50\u6293\u5BF9\u624B\u8FDB\u884C\u653B\u51FB\u3002"
+  damage: 60
+  maxPP: 30
+  currentPP: 30
+  hitRate: 100
+  effect: 0
+  unlockLevel: 1
+--- !u!114 &-1160228466996107302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077444177403908821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e916512ab61868741a21e0f83d3a6a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u5F71\u5B50\u5206\u8EAB"
+  description: "\u901A\u8FC7\u5FEB\u901F\u79FB\u52A8\u6765\u5236\u9020\u5206\u8EAB\uFF0C\u6270\u4E71\u5BF9\u624B\uFF0C\u4ECE\u800C\u63D0\u9AD8\u95EA\u907F\u7387\u3002"
+  damage: 0
+  maxPP: 15
+  currentPP: 15
+  hitRate: 0
+  effect: 2
+  unlockLevel: 0
+--- !u!114 &-4698408500404618768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6077444177403908821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e916512ab61868741a21e0f83d3a6a42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: "\u751F\u86CB"
+  description: "\u56DE\u590D\u81EA\u5DF1\u6700\u5927\uFF28\uFF30\u7684\u4E00\u534A\u3002"
+  damage: 0
+  maxPP: 10
+  currentPP: 10
+  hitRate: 70
+  effect: 1
+  unlockLevel: 0
