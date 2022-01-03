@@ -17,6 +17,9 @@ public enum BattleState {
 
 public class BattleSystem : MonoBehaviour
 {
+    public static List<GameObject> playerPokePack;
+    public static List<GameObject> enemyPokePack;
+
     public GameObject dragonPF;
     public GameObject flowerPF;
     public GameObject turtlePF;
@@ -24,14 +27,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject grimerPF;
     public GameObject pikachuPF;
 
-    GameObject playerGO;
-    GameObject enemyGO;
-
     public Transform pStation;
 	public Transform eStation;
-
-    Pokemon pPoke;
-    Pokemon ePoke;
 
     public BattleHud pHud;
     public BattleHud eHud;
@@ -40,10 +37,13 @@ public class BattleSystem : MonoBehaviour
     public List<Button> eMovesBtns;
 
     public Text dialogueText;
-
-
-
-    public BattleState state;
+    
+    GameObject playerGO;
+    GameObject enemyGO;
+    Pokemon pPoke;
+    Pokemon ePoke;
+    BattleState state;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +51,7 @@ public class BattleSystem : MonoBehaviour
         SetupBattle();
     }
 
-    void SetupBattle() {
+    void SetupBattle() { 
         playerGO = Instantiate(dragonPF, pStation);
 		pPoke = playerGO.GetComponent<Pokemon>();
 
@@ -62,11 +62,13 @@ public class BattleSystem : MonoBehaviour
         pHud.SetHud(pPoke);
         eHud.SetHud(ePoke);
 
-        SetMoveBtns();
+        // SetMoveBtns();
 
         state = BattleState.PLAYERTURN;
         PlayerTakeTurn();
     }
+    
+    
 
     void PlayerTakeTurn() {
         if (state == BattleState.PLAYERTURN) {
@@ -74,8 +76,6 @@ public class BattleSystem : MonoBehaviour
         } else {
             Log("It's the player's turn on the right");
         }
-        
-
     }
 
     public void OnMoveBtn(Button b) {
@@ -83,13 +83,15 @@ public class BattleSystem : MonoBehaviour
             if (!pMovesBtns.Contains(b)) {
                 return;
             }
-            int dmg = GetDamageFromBtn(pPoke, b);
+            // int dmg = GetDamageFromBtn(pPoke, b);
+            int dmg = 0;
             ApplyAttack(pPoke, ePoke, dmg);
         } else if (state == BattleState.ENEMYTURN) {
             if (!eMovesBtns.Contains(b)) {
                 return;
             }
-            int dmg = GetDamageFromBtn(ePoke, b);
+            // int dmg = GetDamageFromBtn(ePoke, b);
+            int dmg = 0;
             ApplyAttack(ePoke, pPoke, dmg);
         } else {
             return;
@@ -158,28 +160,9 @@ public class BattleSystem : MonoBehaviour
 
         pHud.SetHud(pPoke);
         eHud.SetHud(ePoke);
-        SetMoveBtns();
+        // @TODO: Set MovePanel
     }
 
-    int GetDamageFromBtn(Pokemon p, Button b) {
-        string n = b.GetComponentInChildren<Text>().text;
-        List<Move> moveList = Move.moveDict[p.pokeName];
-        foreach(Move m in moveList) {
-            if (m.moveName.Equals(n)) {
-                return m.damage;
-            }
-        }
-        return 0;
-    }
-
-    void SetMoveBtns() {
-        for (int i = 0; i < 4; ++i) {
-            pMovesBtns[i].GetComponentInChildren<Text>().text = Move.moveDict[pPoke.pokeName][i].moveName;
-        }
-        for (int i = 0; i < 4; ++i) {
-            eMovesBtns[i].GetComponentInChildren<Text>().text = Move.moveDict[ePoke.pokeName][i].moveName;
-        }
-    }
 
     void Log(string s) {
         // dialogueText.text = pPoke.pokeName + "vs" + ePoke.pokeName;
