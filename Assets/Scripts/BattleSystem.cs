@@ -20,6 +20,9 @@ public class BattleSystem : MonoBehaviour
     public static List<GameObject> playerPokePack;
     public static List<GameObject> enemyPokePack;
 
+    public GameObject playerPF;
+    public GameObject enemyPF;
+
     public GameObject dragonPF;
     public GameObject flowerPF;
     public GameObject turtlePF;
@@ -52,13 +55,13 @@ public class BattleSystem : MonoBehaviour
     }
 
     void SetupBattle() { 
-        playerGO = Instantiate(dragonPF, pStation);
+        playerGO = Instantiate(playerPF, pStation);
 		pPoke = playerGO.GetComponent<Pokemon>();
 
-		enemyGO = Instantiate(grimerPF, eStation);
+		enemyGO = Instantiate(enemyPF, eStation);
 		ePoke = enemyGO.GetComponent<Pokemon>();
 
-        Log(pPoke.pokeName + " vs " + ePoke.pokeName);
+        // Log(pPoke.pokeName + " vs " + ePoke.pokeName);
         pHud.SetHud(pPoke);
         eHud.SetHud(ePoke);
 
