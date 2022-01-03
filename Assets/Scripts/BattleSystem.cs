@@ -20,8 +20,11 @@ public class BattleSystem : MonoBehaviour
     public static List<GameObject> playerPokePack;
     public static List<GameObject> enemyPokePack;
 
-    public GameObject playerPF;
-    public GameObject enemyPF;
+    private int pIndex = 0;
+    private int eIndex = 0;
+
+    // public GameObject playerPF;
+    // public GameObject enemyPF;
 
     public GameObject dragonPF;
     public GameObject flowerPF;
@@ -36,16 +39,17 @@ public class BattleSystem : MonoBehaviour
     public BattleHud pHud;
     public BattleHud eHud;
 
-    public List<Button> pMovesBtns;
-    public List<Button> eMovesBtns;
+    // public List<Button> pMovesBtns;
+    // public List<Button> eMovesBtns;
+    public MovePanel movePanel;
 
     public Text dialogueText;
     
-    GameObject playerGO;
-    GameObject enemyGO;
-    Pokemon pPoke;
-    Pokemon ePoke;
-    BattleState state;
+    private GameObject playerGO;
+    private GameObject enemyGO;
+    private Pokemon pPoke;
+    private Pokemon ePoke;
+    private BattleState state;
     
     // Start is called before the first frame update
     void Start()
@@ -55,6 +59,12 @@ public class BattleSystem : MonoBehaviour
     }
 
     void SetupBattle() { 
+        // Set the index of two pack
+        pIndex = 0;
+        eIndex = 0;
+        
+        
+        
         playerGO = Instantiate(playerPF, pStation);
 		pPoke = playerGO.GetComponent<Pokemon>();
 
@@ -70,6 +80,30 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.PLAYERTURN;
         PlayerTakeTurn();
     }
+    
+    // Load prefabs to game object and other components
+    void LoadPFAndSetComponents()
+    {
+        // Set GameObject and Pokemon
+        playerGO = Instantiate(playerPokePack[pIndex], pStation);
+        pPoke = playerGO.GetComponent<Pokemon>();
+        
+        enemyGO = Instantiate(enemyPokePack[eIndex], eStation);
+        ePoke = enemyGO.GetComponent<Pokemon>();
+        
+        SetHuds();
+    }
+
+    void SetHuds()
+    {
+        pHud.SetHud(pPoke);
+        eHud.SetHud(ePoke);
+        movePanel.SetMoveButton(playerGO);
+    }
+    
+    
+    
+    
     
     
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -23,4 +24,16 @@ public class Move : MonoBehaviour
         this.moveName = moveName;
         this.damage = damage;
     }
+
+    public void Set(Move ots)
+    {
+        this.moveName = ots.moveName;
+        this.damage = ots.damage;
+    }
+
+    public void ExecuteMove(Pokemon p1, Pokemon p2)
+    {
+        
+    }
+    
 }
