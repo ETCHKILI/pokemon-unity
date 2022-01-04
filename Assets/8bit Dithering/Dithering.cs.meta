@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: acec00866db6c864ab22173c3e92dcf3
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - ColoredShader: {fileID: 4800000, guid: fb5b6dbff9bf48841b5034f473768a76, type: 3}
+  - ColloredHsvShader: {fileID: 4800000, guid: 6a903dc48f019144ea29eaa15912e3aa, type: 3}
+  - GrayScaleShader: {fileID: 4800000, guid: fda66f8f0709cba4bac204aeac8e5a66, type: 3}
+  - DitheringTexture: {fileID: 2800000, guid: f013368f35a8fa241948c74eceb5fdba, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
