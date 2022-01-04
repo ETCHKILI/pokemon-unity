@@ -92,6 +92,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3253349999626591271}
   - component: {fileID: 4195056077129781111}
+  - component: {fileID: 6563642858868716549}
+  - component: {fileID: 786023128950203171}
+  - component: {fileID: -326435007707376076}
+  - component: {fileID: -4698923872137685791}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -133,3 +137,59 @@ MonoBehaviour:
   currentHP: 40
   maxHP: 40
   speed: 0
+--- !u!114 &6563642858868716549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140108033842333831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move1
+  damage: 2
+--- !u!114 &786023128950203171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140108033842333831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move2
+  damage: 4
+--- !u!114 &-326435007707376076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140108033842333831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move3
+  damage: 8
+--- !u!114 &-4698923872137685791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140108033842333831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move4
+  damage: 10

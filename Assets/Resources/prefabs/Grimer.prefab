@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7778898842245516540}
   - component: {fileID: 7470065565355721825}
+  - component: {fileID: -6886912456364276176}
+  - component: {fileID: -4553234872120358047}
+  - component: {fileID: -6527271010933721493}
+  - component: {fileID: -7305474552880852196}
   m_Layer: 0
   m_Name: Grimer
   m_TagString: Untagged
@@ -51,6 +55,62 @@ MonoBehaviour:
   currentHP: 30
   maxHP: 30
   speed: 4
+--- !u!114 &-6886912456364276176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199291761151063500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move1
+  damage: 2
+--- !u!114 &-4553234872120358047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199291761151063500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move2
+  damage: 4
+--- !u!114 &-6527271010933721493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199291761151063500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move3
+  damage: 8
+--- !u!114 &-7305474552880852196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8199291761151063500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move4
+  damage: 10
 --- !u!1 &9026286393410467550
 GameObject:
   m_ObjectHideFlags: 0

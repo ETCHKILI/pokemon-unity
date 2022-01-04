@@ -92,6 +92,10 @@ GameObject:
   m_Component:
   - component: {fileID: 445731504033020457}
   - component: {fileID: 445731504033020456}
+  - component: {fileID: 3134866769851750558}
+  - component: {fileID: -6089095743618893669}
+  - component: {fileID: -8029225420344576875}
+  - component: {fileID: -7726143523116684394}
   m_Layer: 0
   m_Name: Pikachu
   m_TagString: Untagged
@@ -133,3 +137,59 @@ MonoBehaviour:
   currentHP: 30
   maxHP: 30
   speed: 7
+--- !u!114 &3134866769851750558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445731504033020463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move1
+  damage: 2
+--- !u!114 &-6089095743618893669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445731504033020463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move2
+  damage: 4
+--- !u!114 &-8029225420344576875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445731504033020463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move3
+  damage: 8
+--- !u!114 &-7726143523116684394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445731504033020463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move4
+  damage: 10

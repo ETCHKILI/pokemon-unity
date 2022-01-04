@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6872120915625893187}
   - component: {fileID: -2107692987674084736}
-  - component: {fileID: 1059816434512874493}
+  - component: {fileID: -5405072259997998020}
+  - component: {fileID: -1519198072696225229}
+  - component: {fileID: -1121662416416410668}
+  - component: {fileID: -7996525819551861527}
   m_Layer: 0
   m_Name: BoBo
   m_TagString: Untagged
@@ -52,7 +55,7 @@ MonoBehaviour:
   currentHP: 30
   maxHP: 30
   speed: 20
---- !u!114 &1059816434512874493
+--- !u!114 &-5405072259997998020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +67,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveName: "\u98DE\u6251"
+  moveName: move1
+  damage: 2
+--- !u!114 &-1519198072696225229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872120915625893184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move2
+  damage: 4
+--- !u!114 &-1121662416416410668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872120915625893184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move3
+  damage: 8
+--- !u!114 &-7996525819551861527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872120915625893184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move4
   damage: 10
 --- !u!1 &7741710157830186401
 GameObject:

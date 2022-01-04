@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+using Text = UnityEngine.UI.Text;
 
 public class MovePanel : MonoBehaviour
 {
@@ -15,9 +16,13 @@ public class MovePanel : MonoBehaviour
         var moveList = new List<Move>(go.GetComponentsInChildren<Move>());
         for (int i = 0; i < Math.Min(moveList.Count, buttonList.Count); i++)
         {
-            buttonList[i].gameObject.AddComponent<Move>();
-            var m = buttonList[i].gameObject.GetComponent<Move>();
+            var m = buttonList[i].gameObject.AddComponent<Move>();
             m.Set(moveList[i]);
+            Debug.Log(m);
+            Debug.Log(m.moveName);
+            buttonList[i].GetComponentInChildren<Text>().text = m.moveName;
+            Debug.Log(buttonList[i].GetComponentInChildren<Text>().text);
+
         }
     }
     

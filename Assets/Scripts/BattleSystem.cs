@@ -17,23 +17,19 @@ public enum BattleState {
 
 public class BattleSystem : MonoBehaviour
 {
+    public static bool withAI;
     public static List<GameObject> playerPokePack;
     public static List<GameObject> enemyPokePack;
 
     private int pIndex = 0;
     private int eIndex = 0;
 
-    // public GameObject playerPF;
-    // public GameObject enemyPF;
-
     public Transform pStation;
 	public Transform eStation;
 
     public BattleHud pHud;
     public BattleHud eHud;
-
-    // public List<Button> pMovesBtns;
-    // public List<Button> eMovesBtns;
+    
     public MovePanel movePanel;
     public Text dialogueText;
     
@@ -55,6 +51,20 @@ public class BattleSystem : MonoBehaviour
         pIndex = 0;
         eIndex = 0;
 
+        playerPokePack = new List<GameObject>()
+        {
+            Resources.Load<GameObject>("prefabs/BoBo"), 
+            Resources.Load<GameObject>("prefabs/FireDragon"), 
+            Resources.Load<GameObject>("prefabs/Flower")
+        };
+        enemyPokePack = new List<GameObject>()
+        {
+            Resources.Load<GameObject>("prefabs/Grimer"), 
+            Resources.Load<GameObject>("prefabs/Pikachu"), 
+            Resources.Load<GameObject>("prefabs/Turtle")
+        };
+        
+        
         LoadNewPFAndSetComponents();
         state = BattleState.PLAYERTURN;
         PlayerTakeTurn();
@@ -74,13 +84,13 @@ public class BattleSystem : MonoBehaviour
         }
         
         // Set GameObject and Pokemon
-        if (state == BattleState.PSWITCH)
+        if (state == BattleState.PSWITCH || state == BattleState.START)
         {
             if (playerGO) { Destroy(playerGO); }
             playerGO = Instantiate(playerPokePack[pIndex], pStation);
             pPoke = playerGO.GetComponent<Pokemon>();
         }
-        if (state == BattleState.ESWITCH)
+        if (state == BattleState.ESWITCH || state == BattleState.START)
         {
             if (enemyGO) { Destroy(enemyGO); }
             enemyGO = Instantiate(enemyPokePack[eIndex], eStation);
@@ -88,6 +98,7 @@ public class BattleSystem : MonoBehaviour
         }
         
         SetHuds();
+        SetMoves();
         return true;
     }
 
@@ -95,27 +106,75 @@ public class BattleSystem : MonoBehaviour
     {
         pHud.SetHud(pPoke);
         eHud.SetHud(ePoke);
-        movePanel.SetMoveButton(playerGO);
     }
-    
-    
+
+    void SetMoves()
+    {
+        if (state == BattleState.PLAYERTURN || state == BattleState.START)
+        {
+            movePanel.SetMoveButton(playerGO);
+        }
+        else if (!withAI)
+        {
+            movePanel.SetMoveButton(enemyGO);
+        }
+    }
+
     void PlayerTakeTurn() {
         if (state == BattleState.PLAYERTURN) {
             Log("It's the player's turn on the left");
         } else {
             Log("It's the player's turn on the right");
+            if (withAI == true)
+            {
+                var ms = enemyGO.GetComponentsInChildren<Move>();
+                AIMove();
+            }
         }
+    }
+
+    public void AIMove()
+    {
+        var ms = enemyGO.GetComponentsInChildren<Move>();
+        int idx = UnityEngine.Random.Range(0, 4);
+        int dmg = ms[idx].ExecuteMove(ePoke, pPoke);
+        Log_dmg(dmg.ToString(), ms[idx].moveName);
+        CheckState();
     }
 
     public void OnMoveBtn(Button b)
     {
-        b.GetComponent<Move>().ExecuteMove(pPoke, ePoke);
-        SetHuds();
-        CheckState();
+        Move m = b.GetComponent<Move>();
+        int dmg = 0;
+        if (withAI == true)
+        {
+            if (state == BattleState.PLAYERTURN)
+            {
+                dmg = m.ExecuteMove(pPoke, ePoke);
+            }
+            if (state == BattleState.ENEMYTURN)
+            {
+                return;
+            }
+        }
+        else
+        {
+            Debug.Log(state);
+            if (state == BattleState.PLAYERTURN || state == BattleState.ENEMYTURN)
+            {
+                dmg = state == BattleState.PLAYERTURN ? m.ExecuteMove(pPoke, ePoke) : m.ExecuteMove(ePoke, pPoke);
+            }
+        }
+        if (state == BattleState.PLAYERTURN || state == BattleState.ENEMYTURN)
+        {
+            Log_dmg(dmg.ToString(), m.moveName);
+            CheckState();
+        }
     }
 
     public void CheckState()
     {
+        SetHuds();
         BattleState preState = state;
         
         if (pPoke.currentHP <= 0)
@@ -147,9 +206,11 @@ public class BattleSystem : MonoBehaviour
         } else if (preState == BattleState.PLAYERTURN)
         {
             state = BattleState.ENEMYTURN;
+            PlayerTakeTurn();
         } else if (preState == BattleState.ENEMYTURN)
         {
             state = BattleState.PLAYERTURN;
+            PlayerTakeTurn();
         }
     }
 
@@ -165,12 +226,39 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(GoBack());
     }
 
-    void Log(string s) {
-        dialogueText.text = s;
-    }
-    
     IEnumerator GoBack() {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0);
     }    
+    
+    
+    void Log(string s)
+    {
+        // dialogueText.text = pPoke.pokeName + "vs" + ePoke.pokeName;
+        dialogueText.text = dialogueText.text + "\n" + s;
+    }
+
+    string PaintPlayer(string s)
+    {
+        return "<color=#14b437>" + s + "</color>";
+    }
+
+    string PaintEnemy(string s)
+    {
+        return "<color=#e35259>" + s + "</color>";
+    }
+
+    void Log_dmg(string dmg, string move)
+    {
+        if (state == BattleState.PLAYERTURN)
+        {
+            Log(pPoke.pokeName + " use " + move + " deal " + dmg + " to the " + ePoke.pokeName);
+        }
+        else
+        {
+            Log(ePoke.pokeName + " use " + move + " deal " + dmg + " to the " + pPoke.pokeName);
+        }
+    }
+
+    
 }

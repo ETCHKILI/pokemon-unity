@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 520371660289341011}
   - component: {fileID: 9207202099168379432}
+  - component: {fileID: -1130802227777780485}
+  - component: {fileID: -5633884973033786441}
+  - component: {fileID: 7917677886113212835}
+  - component: {fileID: 5353221964105933068}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Untagged
@@ -51,6 +55,62 @@ MonoBehaviour:
   currentHP: 60
   maxHP: 60
   speed: 1
+--- !u!114 &-1130802227777780485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335331628197521607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move1
+  damage: 2
+--- !u!114 &-5633884973033786441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335331628197521607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move2
+  damage: 4
+--- !u!114 &7917677886113212835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335331628197521607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move3
+  damage: 8
+--- !u!114 &5353221964105933068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335331628197521607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d764590967fcbe542b8c8652dffbf5f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveName: move4
+  damage: 10
 --- !u!1 &4794640295513265822
 GameObject:
   m_ObjectHideFlags: 0

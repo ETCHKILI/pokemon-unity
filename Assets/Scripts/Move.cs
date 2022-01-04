@@ -31,7 +31,7 @@ public class Move : MonoBehaviour
         this.damage = ots.damage;
     }
 
-    public void ExecuteMove(Pokemon p1, Pokemon p2)
+    public int ExecuteMove(Pokemon p1, Pokemon p2)
     {
         float allAtk = p1.attack + damage;
         float damageRate = allAtk / (allAtk + p2.defence);
@@ -44,6 +44,7 @@ public class Move : MonoBehaviour
         }
 
         p2.currentHP -= realDamage;
+        return realDamage;
     }
     
 }
