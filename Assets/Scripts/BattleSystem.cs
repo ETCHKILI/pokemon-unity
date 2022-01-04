@@ -26,13 +26,6 @@ public class BattleSystem : MonoBehaviour
     // public GameObject playerPF;
     // public GameObject enemyPF;
 
-    public GameObject dragonPF;
-    public GameObject flowerPF;
-    public GameObject turtlePF;
-    public GameObject boboPF;
-    public GameObject grimerPF;
-    public GameObject pikachuPF;
-
     public Transform pStation;
 	public Transform eStation;
 
@@ -42,7 +35,6 @@ public class BattleSystem : MonoBehaviour
     // public List<Button> pMovesBtns;
     // public List<Button> eMovesBtns;
     public MovePanel movePanel;
-
     public Text dialogueText;
     
     private GameObject playerGO;
@@ -62,36 +54,41 @@ public class BattleSystem : MonoBehaviour
         // Set the index of two pack
         pIndex = 0;
         eIndex = 0;
-        
-        
-        
-        playerGO = Instantiate(playerPF, pStation);
-		pPoke = playerGO.GetComponent<Pokemon>();
 
-		enemyGO = Instantiate(enemyPF, eStation);
-		ePoke = enemyGO.GetComponent<Pokemon>();
-
-        // Log(pPoke.pokeName + " vs " + ePoke.pokeName);
-        pHud.SetHud(pPoke);
-        eHud.SetHud(ePoke);
-
-        // SetMoveBtns();
-
+        LoadNewPFAndSetComponents();
         state = BattleState.PLAYERTURN;
         PlayerTakeTurn();
     }
     
     // Load prefabs to game object and other components
-    void LoadPFAndSetComponents()
+    bool LoadNewPFAndSetComponents()
     {
-        // Set GameObject and Pokemon
-        playerGO = Instantiate(playerPokePack[pIndex], pStation);
-        pPoke = playerGO.GetComponent<Pokemon>();
+        if (pIndex >= playerPokePack.Count)
+        {
+            return false;
+        }
+
+        if (eIndex >= enemyPokePack.Count)
+        {
+            return false;
+        }
         
-        enemyGO = Instantiate(enemyPokePack[eIndex], eStation);
-        ePoke = enemyGO.GetComponent<Pokemon>();
+        // Set GameObject and Pokemon
+        if (state == BattleState.PSWITCH)
+        {
+            if (playerGO) { Destroy(playerGO); }
+            playerGO = Instantiate(playerPokePack[pIndex], pStation);
+            pPoke = playerGO.GetComponent<Pokemon>();
+        }
+        if (state == BattleState.ESWITCH)
+        {
+            if (enemyGO) { Destroy(enemyGO); }
+            enemyGO = Instantiate(enemyPokePack[eIndex], eStation);
+            ePoke = enemyGO.GetComponent<Pokemon>();
+        }
         
         SetHuds();
+        return true;
     }
 
     void SetHuds()
@@ -102,11 +99,6 @@ public class BattleSystem : MonoBehaviour
     }
     
     
-    
-    
-    
-    
-
     void PlayerTakeTurn() {
         if (state == BattleState.PLAYERTURN) {
             Log("It's the player's turn on the left");
@@ -115,98 +107,68 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    public void OnMoveBtn(Button b) {
-        if (state == BattleState.PLAYERTURN) {
-            if (!pMovesBtns.Contains(b)) {
-                return;
-            }
-            // int dmg = GetDamageFromBtn(pPoke, b);
-            int dmg = 0;
-            ApplyAttack(pPoke, ePoke, dmg);
-        } else if (state == BattleState.ENEMYTURN) {
-            if (!eMovesBtns.Contains(b)) {
-                return;
-            }
-            // int dmg = GetDamageFromBtn(ePoke, b);
-            int dmg = 0;
-            ApplyAttack(ePoke, pPoke, dmg);
-        } else {
-            return;
-        }
+    public void OnMoveBtn(Button b)
+    {
+        b.GetComponent<Move>().ExecuteMove(pPoke, ePoke);
+        SetHuds();
+        CheckState();
     }
 
-    void ApplyAttack(Pokemon p1, Pokemon p2, int damage) {
-        float allAtk = p1.attack + damage;
-        float damageRate = allAtk / (allAtk + p2.defence);
-        int realDamage = (int) (damageRate * allAtk);
-
-        // float missRate = (float)p2.speed / (p1.speed + p2.speed);
-        // int num = UnityEngine.Random.Range(0, 100);
-        // if (num < missRate * 100) {
-        //     Log("This move miss");
-        //     realDamage = 0;
-        // } else {
-        //     Log("Damage " + realDamage.ToString());
-        // }
-
-        Log("Move Damage " + realDamage.ToString());
-
+    public void CheckState()
+    {
+        BattleState preState = state;
         
-        if (p2.TakeDamage(realDamage)) {
-            if (p2.pokeName.Equals("FireDragon")) {
-                state = BattleState.PLAYERTURN;
-                Destroy(playerGO);
-
-                playerGO = Instantiate(flowerPF, pStation);
-		        pPoke = playerGO.GetComponent<Pokemon>();
-                
-            } else if (p2.pokeName.Equals("Flower")) {
-                state = BattleState.PLAYERTURN;
-                Destroy(playerGO);
-
-                playerGO = Instantiate(turtlePF, pStation);
-		        pPoke = playerGO.GetComponent<Pokemon>();
-            } else if (p2.pokeName.Equals("Turtle")) {
+        if (pPoke.currentHP <= 0)
+        {
+            pIndex++;
+            state = BattleState.PSWITCH;
+            if (!LoadNewPFAndSetComponents())
+            {
                 state = BattleState.EWIN;
-                Log("Player on the right wins");
-                StartCoroutine( GoBack());
-            } else if (p2.pokeName.Equals("Grimer")) {
-                state = BattleState.ENEMYTURN;
-                Destroy(enemyGO);
-
-                enemyGO = Instantiate(boboPF, eStation);
-		        ePoke = enemyGO.GetComponent<Pokemon>();
-            }  else if (p2.pokeName.Equals("BoBo")) {
-                state = BattleState.ENEMYTURN;
-                Destroy(enemyGO);
-
-                enemyGO = Instantiate(pikachuPF, eStation);
-		        ePoke = enemyGO.GetComponent<Pokemon>();
-            }  else if (p2.pokeName.Equals("Pikachu")) {
-                state = BattleState.PWIN;
-                Log("Player on the right wins");
-                StartCoroutine( GoBack());
             }
-        } else {
-            if (state == BattleState.PLAYERTURN) {
-                state = BattleState.ENEMYTURN;
-            } else {
-                state = BattleState.PLAYERTURN;
+            
+        }
+        if (ePoke.currentHP <= 0)
+        {
+            eIndex++;
+            state = BattleState.ESWITCH;
+            if (!LoadNewPFAndSetComponents())
+            {
+                state = BattleState.PWIN;
             }
         }
 
-        pHud.SetHud(pPoke);
-        eHud.SetHud(ePoke);
-        // @TODO: Set MovePanel
+        if (state == BattleState.PWIN)
+        {
+            BattleOver();
+        } else if (state == BattleState.EWIN)
+        {
+            BattleOver();
+        } else if (preState == BattleState.PLAYERTURN)
+        {
+            state = BattleState.ENEMYTURN;
+        } else if (preState == BattleState.ENEMYTURN)
+        {
+            state = BattleState.PLAYERTURN;
+        }
     }
 
+    void BattleOver()
+    {
+        if (state == BattleState.PWIN) 
+        {
+            Log("Left Win");
+        } else if (state == BattleState.EWIN) 
+        {
+            Log("Right Win");   
+        }
+        StartCoroutine(GoBack());
+    }
 
     void Log(string s) {
-        // dialogueText.text = pPoke.pokeName + "vs" + ePoke.pokeName;
         dialogueText.text = s;
     }
-
-
+    
     IEnumerator GoBack() {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0);

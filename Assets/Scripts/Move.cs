@@ -33,7 +33,17 @@ public class Move : MonoBehaviour
 
     public void ExecuteMove(Pokemon p1, Pokemon p2)
     {
-        
+        float allAtk = p1.attack + damage;
+        float damageRate = allAtk / (allAtk + p2.defence);
+        int realDamage = (int) (damageRate * allAtk);
+
+        float missRate = (float)p2.speed / (2 * (p1.speed + p2.speed));
+        int num = UnityEngine.Random.Range(0, 100);
+        if (num < missRate * 100) {
+            realDamage = 0;
+        }
+
+        p2.currentHP -= realDamage;
     }
     
 }
